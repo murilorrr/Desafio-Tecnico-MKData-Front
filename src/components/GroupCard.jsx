@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components'
-import { updateGroup } from '../fetches'
+import { updateGroup, deleteGroup } from '../fetches'
 
 function GroupCard({group: {name, id, activated}}) {
 
@@ -28,9 +28,9 @@ function GroupCard({group: {name, id, activated}}) {
         </button>
         <button
           type="button"
-          // onClick={async () => {
-          //   await deleteCustomer(id);
-          // }}
+          onClick={async () => {
+            await deleteGroup(id);
+          }}
         >
           DELETE
         </button>
