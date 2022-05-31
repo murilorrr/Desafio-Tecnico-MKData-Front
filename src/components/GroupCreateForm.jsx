@@ -59,6 +59,12 @@ function GroupCreateForm() {
         >
           Cadastrar
         </button>
+        <div
+          className={ warning !== '' ? 'error' : '' }
+          visible={ warning === 'true'? 'true' : 'false' }
+        >
+          <div>{warning}</div>
+        </div>
       </FormCreateAnyUser>
     </div>
   )

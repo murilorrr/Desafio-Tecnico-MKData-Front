@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import {
-  // loginPage,
+  Login,
   Group,
   Customer
 } from './pages'
@@ -8,7 +8,7 @@ import {
 function App() {
   return (
     <Switch>
-      {/* <Route exact path="/" component={ loginPage } /> */}
+      <Route exact path="/" component={ Login } />
       <Route exact path="/customers" component={ Customer } />
       <Route exact path="/groups" component={ Group } />
     </Switch>

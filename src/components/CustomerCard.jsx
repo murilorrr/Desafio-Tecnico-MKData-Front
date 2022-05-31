@@ -63,7 +63,6 @@ function CustomerCard({ customer: { id, name, activated, dataDeCadastro, group: 
     const handleChange = ({ target }) => {
       const { name, value } = target;
       setCustomerEdit({...customerEdit, [name]: value});
-      return undefined;
     };
 
     return (
