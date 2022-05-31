@@ -21,8 +21,8 @@ function CustomerList() {
   return(
     <div>
     { customers.length >= 1 ? customers
-      .map((user, index) => (<CustomerLine
-        customer={ user }
+      .map((customer, index) => (<CustomerLine
+        customer={ customer }
         key={ index }
         index={ index }
       />)) : <div>Nenhum Cliente ainda</div>}
