@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import { getAllGroups, updateCustomer } from "../fetches";
+import { getAllGroups, updateCustomer, deleteCustomer } from "../fetches";
 
 const Div = styled.div`
   border: 1px solid black;
@@ -59,11 +59,13 @@ function CustomerLine({ customer: { id, name, activated, dataDeCadastro, group: 
           EDIT
         </button>
         <button
-            type="button"
-            // onClick={}
-            >
-            DELETE
-          </button>
+          type="button"
+          onClick={async () => {
+            await deleteCustomer(id);
+          }}
+        >
+          DELETE
+        </button>
       </Div>
     );
   };
