@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import { getAllGroups } from "../fetches";
+import { getAllGroups, updateCustomer } from "../fetches";
 
 const Div = styled.div`
   border: 1px solid black;
@@ -14,7 +14,7 @@ const DivEdit = styled.div`
 `
 
 function CustomerLine({ customer: { id, name, activated, dataDeCadastro, group: { name: groupName, groupId, groupActivated }, inscricaoUnica, cadastroUnico, type }, index }) {
-
+  console.log(id);
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
@@ -131,8 +131,8 @@ function CustomerLine({ customer: { id, name, activated, dataDeCadastro, group: 
         <div className="buttons">
           <button
             type="button"
-            onClick={() => {
-              // updateTask({ title: titleEdit, body: bodyEdit, status: statusEdit }, token, id);
+            onClick={async () => {
+              await updateCustomer(customerEdit, id);
               setEdit(false);
             }}
             >
