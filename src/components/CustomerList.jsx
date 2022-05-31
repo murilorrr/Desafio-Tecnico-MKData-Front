@@ -19,14 +19,17 @@ function CustomerList() {
     };
   }, []);
   return(
-    <div>
-    { customers.length >= 1 ? customers
-      .map((customer, index) => (<CustomerLine
-        customer={ customer }
-        key={ index }
-        index={ index }
-      />)) : <div>Nenhum Cliente ainda</div>}
-  </div>
+    <article>
+      <h1>LISTAGEM DE CLIENTES</h1>
+      <div>
+      { customers.length >= 1 ? customers
+        .map((customer, index) => (<CustomerLine
+          customer={ customer }
+          key={ index }
+          index={ index }
+        />)) : <div>Nenhum Cliente ainda</div>}
+      </div>
+    </article>
   );
 }
 
