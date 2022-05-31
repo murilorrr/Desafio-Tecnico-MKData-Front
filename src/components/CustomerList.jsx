@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   getAllCustomers,
 } from '../fetches';
-import CustomerLine from '../components/CustomerLine';
+import CustomerCard from './CustomerCard';
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
@@ -23,7 +23,7 @@ function CustomerList() {
       <h1>LISTAGEM DE CLIENTES</h1>
       <div>
       { customers.length >= 1 ? customers
-        .map((customer, index) => (<CustomerLine
+        .map((customer, index) => (<CustomerCard
           customer={ customer }
           key={ index }
           index={ index }

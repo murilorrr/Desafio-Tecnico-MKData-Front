@@ -13,8 +13,8 @@ const DivEdit = styled.div`
   flex-direction: column;
 `
 
-function CustomerLine({ customer: { id, name, activated, dataDeCadastro, group: { name: groupName, groupId, groupActivated }, inscricaoUnica, cadastroUnico, type }, index }) {
-  console.log(id);
+function CustomerCard({ customer: { id, name, activated, dataDeCadastro, group: { name: groupName, groupId, groupActivated }, inscricaoUnica, cadastroUnico, type }, index }) {
+
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
@@ -152,4 +152,4 @@ function CustomerLine({ customer: { id, name, activated, dataDeCadastro, group: 
 
 }
 
-export default CustomerLine;
+export default CustomerCard;
