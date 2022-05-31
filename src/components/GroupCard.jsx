@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components'
+import { updateGroup } from '../fetches'
 
 function GroupCard({group: {name, id, activated}}) {
 
@@ -68,7 +69,7 @@ function GroupCard({group: {name, id, activated}}) {
           <button
             type="button"
             onClick={async () => {
-            //   await updateCustomer(groupEdit, id);
+              await updateGroup(groupEdit, id);
               setEdit(false);
             }}
             >
