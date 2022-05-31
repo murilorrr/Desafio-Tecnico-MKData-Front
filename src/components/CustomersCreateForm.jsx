@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styled from 'styled-components';
-import { getAllGroups } from "../fetches";
+// import styled from 'styled-components';
+import { getAllGroups, createCustomer } from "../fetches";
 
 function CustomersCreateForm() {
   const date = new Date();
@@ -44,7 +44,7 @@ function CustomersCreateForm() {
   const clearInputs = () => {
     setCustomerCreate({
       name: '',
-      type: '',
+      type: 'cpf',
       dataDeCadastro: initialDatePlaceholder,
       group: '',
       inscricaoUnica: '',
@@ -54,20 +54,23 @@ function CustomersCreateForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const twoSeconds = 2000;
+    const twoSeconds = 2000;
 
-    // const { error: message } = await createCustomer(customerCreate);
-    // if (message) {
-    //   setWarning(message);
-    //   setTimeout(() => setWarning(''), twoSeconds);
-    // }
+    const { err: { message } } = await createCustomer(customerCreate);
+    if (message) {
+      console.log(message);
+      setWarning(message);
+    } else {
+      setWarning('Algo deu errado com a criação do cliente!')
+    }
+    setTimeout(() => setWarning(''), twoSeconds);
     clearInputs();
   };
 
   const {name, type, dataDeCadastro, group, inscricaoUnica, cadastroUnico } = customerCreate
 
   return(
-    <body>
+    <div>
       <h1>CRIAR CLIENTE</h1>
       <form onSubmit={ handleSubmit }>
         <input
@@ -121,7 +124,6 @@ function CustomersCreateForm() {
         </select>
 
         <button
-          data-testid="admin_manage__button-register"
           type="submit"
           disabled={ disableButton }
         >
@@ -135,7 +137,7 @@ function CustomersCreateForm() {
           <div>{warning}</div>
         </div>
       </form>
-    </body>
+    </div>
   );
 }
 
