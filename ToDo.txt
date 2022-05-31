@@ -1,0 +1,5 @@
+aceitar mensagens de erro ao criar um cliente
+deletar um cliente
+updatar um cliente
+adicionar o cliente à lista apartir de um context
+criar a pagina de listar, deletar e criar groups
