@@ -1,11 +1,21 @@
 import React, {useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
+
+  let history = useHistory();
+
+  const rootUser = {
+    login: "root",
+    cadastroUnico: "root"
+  }
 
   const [user, setUser] = useState({
     login: '',
     cadastroUnico: '',
   });
+
+  const [warning, setWarning] = useState('');
 
   const [disableButton, setDisableButton] = useState(false);
 
@@ -23,9 +33,26 @@ function LoginForm() {
     }
   }, [user]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const twoSeconds = 2000;
+
+    if (Object.keys(user).every(key => user[key] === rootUser[key])) {
+      history.push("/customers");
+    } else {
+      setWarning("Credenciais incorretas");
+      setTimeout(() => setWarning(''), twoSeconds);
+    }
+
+    setUser({
+      login: '',
+      cadastroUnico: '',
+    });
+  };
+
   return (
     <div >
-      <form>
+      <form onSubmit={ handleSubmit }>
         <input
           type="text"
           name="login"
@@ -42,6 +69,12 @@ function LoginForm() {
           />
         <button disabled={disableButton} type="submit">Login</button>
       </form>
+      <div
+          className={ warning !== '' ? 'error' : '' }
+          visible={ warning === 'true'? 'true' : 'false' }
+        >
+          <div>{warning}</div>
+        </div>
     </div>
   )
 }
