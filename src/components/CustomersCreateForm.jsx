@@ -5,18 +5,19 @@ import { getAllGroups } from "../fetches";
 function CustomersCreateForm() {
   const date = new Date();
   const initialDatePlaceholder = String(date.getFullYear().toString() +'-'+ date.getMonth().toString().padStart(2, '0') +'-'+ date.getDay().toString().padStart(2, '0'))
-  const [customerCreate, setCustomerCreate] = useState({
+  const initialKeys = {
     name: '',
     type: 'cpf',
     dataDeCadastro: initialDatePlaceholder,
     group: '',
     inscricaoUnica: '',
     cadastroUnico: '',
-  });
+  }
+  const [customerCreate, setCustomerCreate] = useState(initialKeys);
 
   const [warning, setWarning] = useState('');
   const [groups, setGroups] = useState([]);
-  const [disableButton, setDisableButton] = useState(true);
+  const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
     const fetchAllGroups = async () => {
@@ -32,13 +33,13 @@ function CustomersCreateForm() {
   
 
   useEffect(() => {
-    const validateCustomer = () => Object.keys(customerCreate).every((key) => key !== '');
+    const validateCustomer = () => Object.keys(customerCreate).every((key) => key !== initialKeys.key);
     if (validateCustomer()) {
       setDisableButton(false);
     } else {
       setDisableButton(true);
     }
-  }, [customerCreate]);
+  }, [customerCreate, initialKeys.key]);
 
   const clearInputs = () => {
     setCustomerCreate({
@@ -114,7 +115,7 @@ function CustomersCreateForm() {
     id="group"
     onChange={ ({ target }) => setCustomerCreate({...customerCreate, group: target.value}) }
   >
-    { groups.map((group) => group.activated === true && <option value={group.name}>{group.name}</option>)}
+    { groups.map((group, index) => group.activated === true && <option key={index} value={group.name}>{group.name}</option>)}
   </select>
 
     <button
@@ -127,7 +128,7 @@ function CustomersCreateForm() {
     </button>
     <div
       className={ warning !== '' ? 'error' : '' }
-      visible={ warning === '' }
+      visible={ warning === 'true'? 'true' : 'false' }
     >
       <div>{warning}</div>
     </div>
