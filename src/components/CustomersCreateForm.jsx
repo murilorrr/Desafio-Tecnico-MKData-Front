@@ -23,14 +23,16 @@ function CustomersCreateForm() {
     const fetchAllGroups = async () => {
       const response = await getAllGroups()
       response && setGroups(response);
-      setCustomerCreate({...customerCreate, group: response[0].name});
+      setCustomerCreate(c => {
+        c.group = response[0].name
+        return c;
+      });
     }
     fetchAllGroups();
     return () => {
       setGroups([]);
     };
   }, []);
-  
 
   useEffect(() => {
     const validateCustomer = () => Object.keys(customerCreate).every((key) => key !== initialKeys.key);
