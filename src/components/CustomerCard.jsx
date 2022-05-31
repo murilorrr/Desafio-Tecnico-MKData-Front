@@ -2,17 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { getAllGroups, updateCustomer, deleteCustomer } from "../fetches";
 
-const Div = styled.div`
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-`
-
-const DivEdit = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
 function CustomerCard({ customer: { id, name, activated, dataDeCadastro, group: { name: groupName, groupId, groupActivated }, inscricaoUnica, cadastroUnico, type }, index }) {
 
   const [groups, setGroups] = useState([]);
@@ -151,5 +140,16 @@ function CustomerCard({ customer: { id, name, activated, dataDeCadastro, group: 
   return defaultHTMLToVisualization();
 
 }
+
+const Div = styled.div`
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+`
+
+const DivEdit = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export default CustomerCard;

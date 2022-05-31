@@ -1,18 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components'
 
-const Div = styled.div`
-border: 1px solid black;
-display: flex;
-flex-direction: column;
-`
-
-
-const DivEdit = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
 function GroupCard({group: {name, id, activated}}) {
 
   const initialKeys = {
@@ -97,5 +85,19 @@ function GroupCard({group: {name, id, activated}}) {
   }
   return defaultGroupCard();
 }
+
+
+const Div = styled.div`
+border: 1px solid black;
+display: flex;
+flex-direction: column;
+`
+
+
+const DivEdit = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 
 export default GroupCard;

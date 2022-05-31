@@ -17,7 +17,7 @@ function CustomersCreateForm() {
 
   const [warning, setWarning] = useState('');
   const [groups, setGroups] = useState([]);
-  const [disableButton, setDisableButton] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
 
   useEffect(() => {
     const fetchAllGroups = async () => {
@@ -35,7 +35,7 @@ function CustomersCreateForm() {
   }, []);
 
   useEffect(() => {
-    const validateCustomer = () => Object.keys(customerCreate).every((key) => key !== initialKeys.key);
+    const validateCustomer = () => Object.keys(customerCreate).some((key) => key !== initialKeys.key);
     if (validateCustomer()) {
       setDisableButton(false);
     } else {
