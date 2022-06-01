@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from 'styled-components';
-import { createGroup } from "../fetches";
+import { createGroup } from "../../fetches";
+import { GlobalContext } from '../../contexts/GlobalContext';
+import Warning from "../Warning/warning";
 
 function GroupCreateForm() {
 
@@ -8,7 +10,8 @@ function GroupCreateForm() {
     name: '',
   }
   const [groupCreate, setGroupCreate] = useState(initialKeys);
-  const [warning, setWarning] = useState('');
+  
+  const { setWarning } = useContext(GlobalContext);
   const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
@@ -59,12 +62,7 @@ function GroupCreateForm() {
         >
           Cadastrar
         </button>
-        <div
-          className={ warning !== '' ? 'error' : '' }
-          visible={ warning === 'true'? 'true' : 'false' }
-        >
-          <div>{warning}</div>
-        </div>
+        <Warning />
       </FormCreateAnyUser>
     </div>
   )

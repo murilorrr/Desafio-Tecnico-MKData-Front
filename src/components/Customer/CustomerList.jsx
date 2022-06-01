@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   getAllCustomers,
-} from '../fetches';
+} from '../../fetches';
 import CustomerCard from './CustomerCard';
 
 function CustomerList() {

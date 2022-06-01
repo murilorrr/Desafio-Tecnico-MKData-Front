@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import { getAllGroups, updateCustomer, deleteCustomer } from "../fetches";
+import { getAllGroups, updateCustomer, deleteCustomer } from "../../fetches";
 
 function CustomerCard({ customer: { id, name, activated, dataDeCadastro, group: { name: groupName, groupId, groupActivated }, inscricaoUnica, cadastroUnico, type }, index }) {
 

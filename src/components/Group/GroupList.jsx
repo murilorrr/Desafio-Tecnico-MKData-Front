@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   getAllGroups,
-} from '../fetches';
+} from '../../fetches';
 import GroupCard from './GroupCard';
 
 function GroupList() {

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components'
-import { updateGroup, deleteGroup } from '../fetches'
+import { updateGroup, deleteGroup } from '../../fetches'
 
 function GroupCard({group: {name, id, activated}}) {
 

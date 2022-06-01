@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from 'styled-components';
-import { getAllGroups, createCustomer } from "../fetches";
+import { getAllGroups, createCustomer } from "../../fetches";
+import { GlobalContext } from '../../contexts/GlobalContext';
+import Warning from "../Warning/warning";
 
 function CustomersCreateForm() {
   const date = new Date();
@@ -13,9 +15,10 @@ function CustomersCreateForm() {
     inscricaoUnica: '',
     cadastroUnico: '',
   }
+  const { setWarning } = useContext(GlobalContext);
+
   const [customerCreate, setCustomerCreate] = useState(initialKeys);
 
-  const [warning, setWarning] = useState('');
   const [groups, setGroups] = useState([]);
   const [disableButton, setDisableButton] = useState(true);
 
@@ -56,7 +59,6 @@ function CustomersCreateForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const twoSeconds = 2000;
 
     const { err: { message } } = await createCustomer(customerCreate);
     if (message) {
@@ -65,7 +67,6 @@ function CustomersCreateForm() {
     } else {
       setWarning('Algo deu errado com a criação do cliente!')
     }
-    setTimeout(() => setWarning(''), twoSeconds);
     clearInputs();
   };
 
@@ -132,12 +133,7 @@ function CustomersCreateForm() {
           Cadastrar
 
         </button>
-        <div
-          className={ warning !== '' ? 'error' : '' }
-          visible={ warning === 'true'? 'true' : 'false' }
-        >
-          <div>{warning}</div>
-        </div>
+        <Warning />
       </FormCreateAnyUser>
     </div>
   );

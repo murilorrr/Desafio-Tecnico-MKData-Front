@@ -1,7 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { GlobalContext } from '../../contexts/GlobalContext'
+import Warning from "../Warning/warning";
 
 function LoginForm() {
+
+  const {setWarning} = useContext(GlobalContext);
 
   let history = useHistory();
 
@@ -14,8 +18,6 @@ function LoginForm() {
     login: '',
     cadastroUnico: '',
   });
-
-  const [warning, setWarning] = useState('');
 
   const [disableButton, setDisableButton] = useState(false);
 
@@ -69,12 +71,7 @@ function LoginForm() {
           />
         <button disabled={disableButton} type="submit">Login</button>
       </form>
-      <div
-          className={ warning !== '' ? 'error' : '' }
-          visible={ warning === 'true'? 'true' : 'false' }
-        >
-          <div>{warning}</div>
-        </div>
+      <Warning />
     </div>
   )
 }
