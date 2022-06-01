@@ -1,6 +1,6 @@
 import React from 'react';
-import GroupList from '../components/GroupList';
-import GroupCreateForm from '../components/GroupCreateForm';
+import GroupList from '../components/Group/GroupList';
+import GroupCreateForm from '../components/Group/GroupCreateForm';
 
 function GroupPage() {
 

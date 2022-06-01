@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomersList from '../components/CustomerList';
-import CustomersCreateForm from '../components/CustomersCreateForm';
+import CustomersList from '../components/Customer/CustomerList';
+import CustomersCreateForm from '../components/Customer/CustomersCreateForm';
 
 function CustomerPage() {
 
