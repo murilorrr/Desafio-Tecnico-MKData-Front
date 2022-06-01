@@ -132,7 +132,9 @@ function CustomersCreateForm() {
           id="group"
           onChange={({ target }) => setCustomerCreate({ ...customerCreate, group: target.value })}
         >
-          { groups.map(({ name: groupSelectName, idGroup, activated }) => activated === true && (
+          { groups.map((
+            { name: groupSelectName, id: idGroup, activated },
+          ) => activated === true && (
           <option
             key={idGroup}
             value={groupSelectName}
