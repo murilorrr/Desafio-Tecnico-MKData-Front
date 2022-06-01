@@ -6,11 +6,13 @@ import HeaderPages from '../components/Header/HeaderPages';
 
 function CustomerPage() {
   return (
-    <Content>
+    <>
       <HeaderPages />
-      <CustomersCreateForm />
-      <CustomersList />
-    </Content>
+      <Content>
+        <CustomersCreateForm />
+        <CustomersList />
+      </Content>
+    </>
   );
 }
 

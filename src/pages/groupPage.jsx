@@ -6,11 +6,13 @@ import HeaderPages from '../components/Header/HeaderPages';
 
 function GroupPage() {
   return (
-    <Content>
+    <>
       <HeaderPages />
-      <GroupCreateForm />
-      <GroupList />
-    </Content>
+      <Content>
+        <GroupCreateForm />
+        <GroupList />
+      </Content>
+    </>
   );
 }
 

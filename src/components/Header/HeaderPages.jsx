@@ -12,9 +12,9 @@ function HeaderPages() {
     <header>
       <nav>
         <Ul>
-          <Li><a href="customers">Clientes</a></Li>
-          <Li><a href="groups">Grupos</a></Li>
-          <Li><a href="/">Login</a></Li>
+          <Li><A href="customers">Clientes</A></Li>
+          <Li><A href="groups">Grupos</A></Li>
+          <Li><A href="/">Login</A></Li>
         </Ul>
       </nav>
     </header>
@@ -36,6 +36,14 @@ const Ul = styled.ul`
 const Li = styled.li`
   float: left;
   padding: 1em;
+  color: var(--gray-50);
+`;
+
+const A = styled.a`
+  transition: 0.3s;
+  &:hover {
+    color: var(--gray-200);
+  }
 `;
 
 export default HeaderPages;
