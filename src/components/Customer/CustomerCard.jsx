@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { getAllGroups, updateCustomer, deleteCustomer } from '../../fetches';
 import DeleteButton from '../Buttons/DeleteButton';
 import EditButton from '../Buttons/EditButton';
 import EditedButton from '../Buttons/EditedButton';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function CustomerCard({
   customer: {
@@ -12,7 +13,7 @@ function CustomerCard({
     }, inscricaoUnica, cadastroUnico, type,
   }, index,
 }) {
-  const [groups, setGroups] = useState([]);
+  const { setGroups, groups } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchAllGroups = async () => {
@@ -20,9 +21,6 @@ function CustomerCard({
       setGroups(response);
     };
     fetchAllGroups();
-    return () => {
-      setGroups([]);
-    };
   }, []);
 
   const initialKeys = {

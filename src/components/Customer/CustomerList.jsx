@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
   getAllCustomers,
 } from '../../fetches';
 import CustomerCard from './CustomerCard';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function CustomerList() {
-  const [customers, setCustomers] = useState([]);
+  const { setCustomers, customers } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,9 +14,6 @@ function CustomerList() {
       setCustomers(response);
     };
     fetchData();
-    return () => {
-      setCustomers([]);
-    };
   }, []);
   return (
     <article>

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
   getAllGroups,
 } from '../../fetches';
 import GroupCard from './GroupCard';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function GroupList() {
-  const [groups, setGroups] = useState([]);
+  const { setGroups, groups } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,9 +14,6 @@ function GroupList() {
       setGroups(response);
     };
     fetchData();
-    return () => {
-      setGroups([]);
-    };
   }, []);
   return (
     <article>
