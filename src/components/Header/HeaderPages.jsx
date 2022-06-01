@@ -35,6 +35,7 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   float: left;
+  padding: 1em;
 `;
 
 export default HeaderPages;
