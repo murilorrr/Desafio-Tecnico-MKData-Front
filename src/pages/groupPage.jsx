@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import GroupList from '../components/Group/GroupList';
 import GroupCreateForm from '../components/Group/GroupCreateForm';
+import HeaderPages from '../components/Header/HeaderPages';
 
 function GroupPage() {
   return (
     <Content>
+      <HeaderPages />
       <GroupCreateForm />
       <GroupList />
     </Content>

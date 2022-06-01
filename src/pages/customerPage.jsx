@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import CustomersList from '../components/Customer/CustomerList';
 import CustomersCreateForm from '../components/Customer/CustomersCreateForm';
+import HeaderPages from '../components/Header/HeaderPages';
 
 function CustomerPage() {
   return (
     <Content>
+      <HeaderPages />
       <CustomersCreateForm />
       <CustomersList />
     </Content>
