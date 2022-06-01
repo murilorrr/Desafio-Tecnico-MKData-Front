@@ -7,7 +7,7 @@ function EditedButton({ callback }) {
       type="button"
       onClick={callback}
     >
-      EDITED
+      EDITADO
     </button>
   );
 }

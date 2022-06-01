@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { updateGroup, deleteGroup } from '../../fetches';
+import DeleteButton from '../Buttons/DeleteButton';
+import EditButton from '../Buttons/EditButton';
+import EditedButton from '../Buttons/EditedButton';
 
 function GroupCard({ group: { name, id, activated } }) {
   const initialKeys = {
@@ -20,22 +23,14 @@ function GroupCard({ group: { name, id, activated } }) {
         Ativo:
         {groupEdit.activated.toString() === 'true' ? 'ativo' : 'não ativo'}
       </p>
-      <button
-        type="button"
-        onClick={() => {
-          setEdit(true);
-        }}
-      >
-        EDIT
-      </button>
-      <button
-        type="button"
-        onClick={async () => {
-          await deleteGroup(id);
-        }}
-      >
-        DELETE
-      </button>
+      <EditButton callback={() => {
+        setEdit(true);
+      }}
+      />
+      <DeleteButton callback={async () => {
+        await deleteGroup(id);
+      }}
+      />
     </Div>
   );
 
@@ -67,15 +62,11 @@ function GroupCard({ group: { name, id, activated } }) {
           </select>
         </div>
         <div className="buttons">
-          <button
-            type="button"
-            onClick={async () => {
-              await updateGroup(groupEdit, id);
-              setEdit(false);
-            }}
-          >
-            EDITED
-          </button>
+          <EditedButton callback={async () => {
+            await updateGroup(groupEdit, id);
+            setEdit(false);
+          }}
+          />
         </div>
 
       </DivEdit>

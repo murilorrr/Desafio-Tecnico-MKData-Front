@@ -7,7 +7,7 @@ function DeleteButton({ callback }) {
       type="button"
       onClick={callback}
     >
-      DELETE
+      DELETAR
     </button>
   );
 }
