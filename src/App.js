@@ -5,13 +5,17 @@ import {
   Customer
 } from './pages'
 
+import GlobalProvider from './contexts/GlobalContext';
+
 function App() {
   return (
-    <Switch>
-      <Route exact path="/" component={ Login } />
-      <Route exact path="/customers" component={ Customer } />
-      <Route exact path="/groups" component={ Group } />
-    </Switch>
+    <GlobalProvider>
+      <Switch>
+        <Route exact path="/" component={ Login } />
+        <Route exact path="/customers" component={ Customer } />
+        <Route exact path="/groups" component={ Group } />
+      </Switch>
+    </GlobalProvider>
   );
 }
 
