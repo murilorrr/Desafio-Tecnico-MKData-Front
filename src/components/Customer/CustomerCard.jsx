@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getAllGroups, updateCustomer, deleteCustomer } from '../../fetches';
+import DeleteButton from '../Buttons/DeleteButton';
+import EditButton from '../Buttons/EditButton';
+import EditedButton from '../Buttons/EditedButton';
 
 function CustomerCard({
   customer: {
@@ -64,22 +67,14 @@ function CustomerCard({
         Ativo:
         {customerEdit.activated.toString() === 'true' ? 'ativo' : 'não ativo'}
       </p>
-      <button
-        type="button"
-        onClick={() => {
-          setEdit(true);
-        }}
-      >
-        EDIT
-      </button>
-      <button
-        type="button"
-        onClick={async () => {
-          await deleteCustomer(id);
-        }}
-      >
-        DELETE
-      </button>
+      <EditButton callback={() => {
+        setEdit(true);
+      }}
+      />
+      <DeleteButton callback={async () => {
+        await deleteCustomer(id);
+      }}
+      />
     </Div>
   );
 
@@ -156,15 +151,11 @@ function CustomerCard({
         </select>
 
         <div className="buttons">
-          <button
-            type="button"
-            onClick={async () => {
-              await updateCustomer(customerEdit, id);
-              setEdit(false);
-            }}
-          >
-            EDITED
-          </button>
+          <EditedButton callback={async () => {
+            await updateCustomer(customerEdit, id);
+            setEdit(false);
+          }}
+          />
         </div>
       </DivEdit>
     );
