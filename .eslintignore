@@ -1,0 +1,6 @@
+*.test.js
+serviceWorker.js
+reportWebVitals.js
+setupTests.js
+src/index.js
+build/*
