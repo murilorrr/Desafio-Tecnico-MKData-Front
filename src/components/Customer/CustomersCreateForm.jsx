@@ -151,9 +151,9 @@ const FormCreateAnyUser = styled.form`
     display: block;
     width: 60%;
     box-shadow: 0 0 15px rgb(0,0,0,0.05);
-    font-size: 18px;
+    font-size: 14px;
     border: 1px solid var(--gray-100);
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 1rem;
     margin: 0.5em 0;
     color: var(--gray-500);
@@ -165,10 +165,10 @@ const FormCreateAnyUser = styled.form`
   select {
     /* background: var(--crimson); */
     /* border: 2px solid var(--crimson); */
-    border-radius: 2rem;
+    border-radius: 1rem;
     width: 30%;
     padding: 1rem;
-    font-size: 18px;
+    font-size: 14px;
     margin: 0.5rem;
     background: var(--gray-50);
     color: var(--gray-500);
@@ -188,11 +188,11 @@ const FormCreateAnyUser = styled.form`
     /* width: 5.5rem; */
     width: 100%;
     /* height: 2rem; */
-    border-radius: 2rem;
+    border-radius: 1rem;
     color: var(--gray-50);
     margin: 0.5rem 0 1.2rem;
     padding: 1rem;
-    font-size: 0.90rem;
+    font-size: 1.20rem;
     display: flex;
     justify-content: center;
     align-items: center;

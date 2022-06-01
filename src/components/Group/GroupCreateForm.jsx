@@ -82,7 +82,7 @@ const FormCreateAnyUser = styled.form`
     box-shadow: 0 0 15px rgb(0,0,0,0.05);
     font-size: 18px;
     border: 1px solid var(--gray-100);
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 1rem;
     margin: 0.5em 0;
     color: var(--gray-500);
@@ -97,7 +97,7 @@ const FormCreateAnyUser = styled.form`
     /* width: 5.5rem; */
     width: 100%;
     /* height: 2rem; */
-    border-radius: 2rem;
+    border-radius: 1rem;
     color: var(--gray-50);
     margin: 0.5rem 0 1.2rem;
     padding: 1rem;

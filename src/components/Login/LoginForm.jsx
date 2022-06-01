@@ -2,6 +2,7 @@ import React, {useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { GlobalContext } from '../../contexts/GlobalContext'
 import Warning from "../Warning/warning";
+import * as S from './styles';
 
 function LoginForm() {
 
@@ -53,26 +54,30 @@ function LoginForm() {
   };
 
   return (
-    <div >
-      <form onSubmit={ handleSubmit }>
-        <input
+    <S.Content>
+      <S.Form onSubmit={ handleSubmit }>
+        <S.Label for="login">Login</S.Label>
+        <S.Input
+          id="login"
           type="text"
           name="login"
-          placeholder="Login"
+          placeholder="Seu nome"
           onChange={handleChange}
           value={user.login}
           />
-        <input
+        <S.Label for="cadastroUnico">Cadastro Unico</S.Label>
+        <S.Input
+          id="cadastroUnico"
           type="text"
           name="cadastroUnico"
           onChange={handleChange}
           value={user.cadastroUnico}
-          placeholder="Numero de cadastro unico"
+          placeholder="RG Exemplo: 11.223.441-22"
           />
-        <button disabled={disableButton} type="submit">Login</button>
-      </form>
+        <S.Button disabled={disableButton} type="submit">Login</S.Button>
+      </S.Form>
       <Warning />
-    </div>
+    </S.Content>
   )
 }
 
