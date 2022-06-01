@@ -1,5 +1,3 @@
-aceitar mensagens de erro ao criar um cliente
-deletar um cliente
-updatar um cliente
-adicionar o cliente à lista apartir de um context
-criar a pagina de listar, deletar e criar groups
+adicionar os clientes à lista de um context
+adicionar os grupos à lista de um context
+Validação de dados de entrada como por exemplo o regex de um cpf e rg
