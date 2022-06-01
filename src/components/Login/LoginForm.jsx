@@ -1,19 +1,18 @@
-import React, {useEffect, useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { GlobalContext } from '../../contexts/GlobalContext'
-import Warning from "../Warning/warning";
+import React, { useEffect, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { GlobalContext } from '../../contexts/GlobalContext';
+import Warning from '../Warning/warning';
 import * as S from './styles';
 
 function LoginForm() {
+  const { setWarning } = useContext(GlobalContext);
 
-  const {setWarning} = useContext(GlobalContext);
-
-  let history = useHistory();
+  const history = useHistory();
 
   const rootUser = {
-    login: "root",
-    cadastroUnico: "root"
-  }
+    login: 'root',
+    cadastroUnico: 'root',
+  };
 
   const [user, setUser] = useState({
     login: '',
@@ -24,7 +23,7 @@ function LoginForm() {
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
-    setUser({...user, [name]: value});
+    setUser({ ...user, [name]: value });
   };
 
   useEffect(() => {
@@ -40,10 +39,10 @@ function LoginForm() {
     e.preventDefault();
     const twoSeconds = 2000;
 
-    if (Object.keys(user).every(key => user[key] === rootUser[key])) {
-      history.push("/customers");
+    if (Object.keys(user).every((key) => user[key] === rootUser[key])) {
+      history.push('/customers');
     } else {
-      setWarning("Credenciais incorretas");
+      setWarning('Credenciais incorretas');
       setTimeout(() => setWarning(''), twoSeconds);
     }
 
@@ -55,7 +54,7 @@ function LoginForm() {
 
   return (
     <S.Content>
-      <S.Form onSubmit={ handleSubmit }>
+      <S.Form onSubmit={handleSubmit}>
         <S.Label for="login">Login</S.Label>
         <S.Input
           id="login"
@@ -64,7 +63,7 @@ function LoginForm() {
           placeholder="Seu nome"
           onChange={handleChange}
           value={user.login}
-          />
+        />
         <S.Label for="cadastroUnico">Cadastro Unico</S.Label>
         <S.Input
           id="cadastroUnico"
@@ -73,12 +72,12 @@ function LoginForm() {
           onChange={handleChange}
           value={user.cadastroUnico}
           placeholder="RG Exemplo: 11.223.441-22"
-          />
+        />
         <S.Button disabled={disableButton} type="submit">Login</S.Button>
       </S.Form>
       <Warning />
     </S.Content>
-  )
+  );
 }
 
 export default LoginForm;

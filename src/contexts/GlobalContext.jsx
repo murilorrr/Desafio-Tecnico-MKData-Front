@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const GlobalContext = createContext();
@@ -11,9 +11,11 @@ function GlobalProvider({ children }) {
     setWarning,
   };
 
+  const contextMemo = useMemo(() => context, [context]);
+
   return (
     <GlobalContext.Provider
-      value={ context }
+      value={contextMemo}
     >
       { children }
     </GlobalContext.Provider>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import * as S from './styles';
+import ErrorMessage from './styles';
 
 function Warning() {
   const twoSeconds = 2000;
@@ -11,12 +11,12 @@ function Warning() {
   }, [setWarning, warning]);
 
   return (
-    <S.ErrorMessage
-      className={ warning !== '' ? 'error' : '' }
-      visible={ warning === 'true'? 'true' : 'false' }
+    <ErrorMessage
+      className={warning !== '' ? 'error' : ''}
+      visible={warning === 'true' ? 'true' : 'false'}
     >
       <div>{warning}</div>
-    </S.ErrorMessage>
+    </ErrorMessage>
   );
 }
 

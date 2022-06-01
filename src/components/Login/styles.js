@@ -15,7 +15,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-`
+`;
 
 export const Input = styled.input`
     display: block;
@@ -28,12 +28,12 @@ export const Input = styled.input`
     margin: 0.5em 0;
     color: var(--gray-500);
     font-weight: 400;
-`
+`;
 
 export const Label = styled.label`
   color: #405c60;
   position: relative;
-`
+`;
 
 export const Button = styled.button`
   width: 95%;
@@ -52,4 +52,4 @@ export const Button = styled.button`
   &:disabled {
     opacity: 0.5;
   }
-`
+`;

@@ -1,11 +1,11 @@
 import api from '../api';
 
 async function getAllCustomers() {
-  const response = await api
+  const getRequest = await api
     .get('/customers')
     .then((response) => response.data)
-    .catch((err) => ({err: err.response.data}));
-  return response;
+    .catch((err) => ({ err: err.response.data }));
+  return getRequest;
 }
 
 export default getAllCustomers;

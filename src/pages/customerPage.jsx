@@ -1,10 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 import CustomersList from '../components/Customer/CustomerList';
 import CustomersCreateForm from '../components/Customer/CustomersCreateForm';
-import styled from 'styled-components';
 
 function CustomerPage() {
-
   return (
     <Content>
       <CustomersCreateForm />
@@ -15,6 +14,6 @@ function CustomerPage() {
 
 const Content = styled.div`
   margin: 1em;
-`
+`;
 
 export default CustomerPage;

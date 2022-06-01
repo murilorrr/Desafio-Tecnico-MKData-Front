@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   getAllCustomers,
 } from '../../fetches';
@@ -10,7 +10,6 @@ function CustomerList() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getAllCustomers();
-      console.log(response);
       setCustomers(response);
     };
     fetchData();
@@ -18,16 +17,18 @@ function CustomerList() {
       setCustomers([]);
     };
   }, []);
-  return(
+  return (
     <article>
       <h1>LISTAGEM DE CLIENTES</h1>
       <div>
-      { customers.length >= 1 ? customers
-        .map((customer, index) => (<CustomerCard
-          customer={ customer }
-          key={ index }
-          index={ index }
-        />)) : <div>Nenhum Cliente ainda</div>}
+        { customers.length >= 1 ? customers
+          .map((customer, index) => (
+            <CustomerCard
+              customer={customer}
+              key={customer.id}
+              index={index}
+            />
+          )) : <div>Nenhum Cliente ainda</div>}
       </div>
     </article>
   );

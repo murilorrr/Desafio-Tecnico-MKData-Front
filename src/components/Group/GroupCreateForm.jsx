@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
-import { createGroup } from "../../fetches";
+import { createGroup } from '../../fetches';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import Warning from "../Warning/warning";
+import Warning from '../Warning/warning';
 
 function GroupCreateForm() {
-
   const initialKeys = {
     name: '',
-  }
+  };
   const [groupCreate, setGroupCreate] = useState(initialKeys);
-  
+
   const { setWarning } = useContext(GlobalContext);
   const [disableButton, setDisableButton] = useState(false);
 
@@ -35,37 +34,36 @@ function GroupCreateForm() {
 
     const { err: { message } } = await createGroup(groupCreate);
     if (message) {
-      console.log(message);
       setWarning(message);
     } else {
-      setWarning('Algo deu errado com a criação do Grupo!')
+      setWarning('Algo deu errado com a criação do Grupo!');
     }
     setTimeout(() => setWarning(''), twoSeconds);
     clearInputs();
   };
 
-  return(
+  return (
     <div>
       <h1>CRIAR GRUPO</h1>
-      <FormCreateAnyUser onSubmit={ handleSubmit }>
+      <FormCreateAnyUser onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Nome do Grupo"
           name="name"
           id="name"
-          value={ groupCreate.name }
-          onChange={ ({ target }) => setGroupCreate({...groupCreate, name: target.value}) }
+          value={groupCreate.name}
+          onChange={({ target }) => setGroupCreate({ ...groupCreate, name: target.value })}
         />
         <button
           type="submit"
-          disabled={ disableButton }
+          disabled={disableButton}
         >
           Cadastrar
         </button>
         <Warning />
       </FormCreateAnyUser>
     </div>
-  )
+  );
 }
 
 const FormCreateAnyUser = styled.form`

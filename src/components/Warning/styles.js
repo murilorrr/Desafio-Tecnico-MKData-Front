@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ErrorMessage = styled.div`
+const ErrorMessage = styled.div`
 display:none;
 position: absolute;
 top: 0;
@@ -22,3 +22,5 @@ div {
   border-radius: 1rem;
 }
 `;
+
+export default ErrorMessage;
