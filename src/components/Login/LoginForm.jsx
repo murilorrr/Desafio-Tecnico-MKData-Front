@@ -55,7 +55,7 @@ function LoginForm() {
   return (
     <S.Content>
       <S.Form onSubmit={handleSubmit}>
-        <S.Label for="login">Login</S.Label>
+        <S.Label htmlFor="login">Login</S.Label>
         <S.Input
           id="login"
           type="text"
@@ -64,7 +64,7 @@ function LoginForm() {
           onChange={handleChange}
           value={user.login}
         />
-        <S.Label for="cadastroUnico">Cadastro Unico</S.Label>
+        <S.Label htmlFor="cadastroUnico">Cadastro Unico</S.Label>
         <S.Input
           id="cadastroUnico"
           type="text"

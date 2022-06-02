@@ -1,3 +1,1 @@
-adicionar os clientes à lista de um context
-adicionar os grupos à lista de um context
 Validação de dados de entrada como por exemplo o regex de um cpf e rg

@@ -62,13 +62,18 @@ function CustomersCreateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { err: { message } } = await createCustomer(customerCreate);
-    if (message) {
-      setWarning(message);
-    } else {
-      setWarning('Algo deu errado com a criação do cliente!');
+    const response = await createCustomer(customerCreate);
+    if (response.err) {
+      if (response.err.message) {
+        setWarning(response.err.message);
+      }
+      if (response.err.name || response.err.inscricaoUnica || response.err.cadastroUnico) {
+        setWarning('Verifique chaves em branco');
+      }
+      if (!response.err) {
+        clearInputs();
+      }
     }
-    clearInputs();
   };
 
   const {
@@ -145,7 +150,6 @@ function CustomersCreateForm() {
         </select>
 
         <button
-          onClick={clearInputs}
           type="submit"
           disabled={disableButton}
         >
